@@ -1,20 +1,56 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Bio Parque</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-button expand="full" color="danger"  [routerLink]="[ '/lista']"> animales</ion-button>
+    <ion-button expand="full" color="primary" (click)="modalQR()" > QR Lector</ion-button>
+    <ion-button expand="full" color="primary" (click)="modalMap()" > MAP</ion-button>
   </div>
+
+  <ion-slides [options]="slidesOpt" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)" class="card-background-page">
+    <ion-slide *ngFor="let item of images">
+        <ion-card (click)="ver(item.nombreId)">
+          <div *ngIf="item.id === '0';">
+            <img src="{{item.link}}" />
+            <div class="card-title">{{item.nombre}}</div>
+            <div class="card-subtitle"></div>
+          </div>
+        </ion-card>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
+<ion-tabs>
+  <ion-icon name="scan-circle-outline" class="icon-button inner-center-btn" (click)="modalQR()"></ion-icon>
+
+  <ion-tab-bar slot="bottom" class="bottom-tab-bar">
+
+    <ion-tab-button tab="home">
+      <ion-icon mode="md" name="home"></ion-icon>
+      <ion-label>Principal</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="lista" class="inner-left-btn">
+      <ion-icon name="search"></ion-icon>
+      <ion-label>Animales</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button class="button-center">
+      <div></div>
+    </ion-tab-button>
+
+    <ion-tab-button tab="map" class="inner-right-btn">
+      <ion-icon name="navigate"></ion-icon>
+      <ion-label>mapa</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="modalinfo()">
+      <ion-icon name="settings"></ion-icon>
+      <ion-label>Settings</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

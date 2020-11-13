@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button >
+        <ion-back-button (click)="dismiss()"></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>ruta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="map" ></div>
+  <div id="floating-panel">
+   
+    <div id="map"></div>
+     
+  </div>
+</ion-content>
+
+<ion-footer  [translucent]="true" style="text-align: -webkit-center; ">
+  <ion-toolbar>
+    <ion-buttons  style="width:75%;     place-content: center;
+    border-bottom: solid;" >
+      <ion-button href="home" style="width:30%"><ion-icon name="home" style="zoom:1.6"></ion-icon></ion-button>
+      <ion-button href="animal" style="width:30%"><ion-icon name="search" large></ion-icon></ion-button>
+      <ion-button href="scanner" style="width:30%"><ion-icon name="scan-circle" style="zoom:1.6"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
