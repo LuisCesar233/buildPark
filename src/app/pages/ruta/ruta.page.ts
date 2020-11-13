@@ -2,6 +2,7 @@ import { LoadingController, ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
+declare var google;
 @Component({
   selector: 'app-ruta',
   templateUrl: './ruta.page.html',
